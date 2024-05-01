@@ -1,0 +1,16 @@
+@tailwind components;
+
+@layer components {
+  .landingHeadlineFont {
+    @apply text-4xl font-black italic;
+  }
+  .landingTitleFont {
+    @apply text-2xl font-bold;
+  }
+  .landingSubTitleFont {
+    @apply text-lg font-medium text-[#7A7A7A];
+  }
+  .landingbutton {
+    @apply text-lg font-bold text-white;
+  }
+}

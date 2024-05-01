@@ -1,0 +1,53 @@
+.nav-button {
+  background-size: 210% auto;
+  background-image: linear-gradient(
+    to right,
+    var(--border) 50%,
+    var(--background) 50%
+  );
+  transition: background-position 200ms ease-in-out;
+  background-position: right center;
+}
+
+/*
+  Hover effect 
+  여기에 있는 코드는 pointer가 fine일 때만 적용됩니다. (마우스를 사용할 때)
+  모바일에서는 pointer가 coarse이기 때문에 적용되지 않습니다.
+*/
+
+@media (pointer: fine) {
+  .nav-button:hover {
+    background-position: left center;
+  }
+  .footer-button:hover {
+    background-position: center bottom;
+  }
+  .hover-scale:hover {
+    transition: transform 200ms ease-in-out;
+    transform: scale(1.2);
+    z-index: 3;
+  }
+}
+
+.footer-button {
+  background-size: auto 210%;
+  background-image: linear-gradient(
+    to top,
+    var(--border) 50%,
+    var(--background) 50%
+  );
+  transition: background-position 200ms ease-in-out;
+  background-position: center top;
+}
+
+@keyframes neon {
+  0% {
+    filter: drop-shadow(0 0 0.05rem var(--foreground));
+  }
+  50% {
+    filter: drop-shadow(0 0 0.08rem var(--foreground));
+  }
+  100% {
+    filter: drop-shadow(0 0 0.05rem var(--foreground));
+  }
+}

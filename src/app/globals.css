@@ -1,0 +1,97 @@
+@tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+  @import "../styles/keyframes.css";
+  @import "../styles/fonts.css";
+  
+  /* 아래는 다크모드 만들 때 매우 좋습니다. */
+  @layer base {
+    :root {
+      --background: #ffffff;
+      --foreground: #002d2d;
+  
+      --card: #ffffff;
+      --card-foreground: #002d2d;
+  
+      --popover: #ffffff;
+      --popover-foreground: #002d2d;
+  
+      --primary: #0f172a;
+      --primary-foreground: #f7f9fb;
+  
+      --secondary: #f1f5f9;
+      --secondary-foreground: #0f172a;
+  
+      --muted: #f1f5f9;
+      --muted-foreground: #64748b;
+  
+      --accent: #f1f5f9;
+      --accent-foreground: #0f172a;
+  
+      --destructive: #ee4444;
+      --destructive-foreground: #f7f9fb;
+  
+      --border: #e2e8f0;
+      --input: #e2e8f0;
+      --ring: #93c5fd;
+  
+      --radius: 0.5rem;
+  
+      --memo: #fef08a;
+      --memo-foreground: #e0b54b;
+    }
+  
+    .dark {
+      --background: #002d2d;
+      --foreground: #f7f9fb;
+  
+      --card: #002d2d;
+      --card-foreground: #f7f9fb;
+  
+      --popover: #002d2d;
+      --popover-foreground: #f7f9fb;
+  
+      --primary: #f7f9fb;
+      --primary-foreground: #0f172a;
+  
+      --secondary: #1e293b;
+      --secondary-foreground: #f7f9fb;
+  
+      --muted: #1e293b;
+      --muted-foreground: #94a3b7;
+  
+      --accent: #1e293b;
+      --accent-foreground: #f7f9fb;
+  
+      --destructive: #7f1d1d;
+      --destructive-foreground: #f7f9fb;
+  
+      --border: #1e293b;
+      --input: #1e293b;
+      --ring: #cad4e0;
+  
+      --memo: #e0b54b;
+      --memo-foreground: #fef08a;
+    }
+  }
+  
+  /* 다크모드 전환 시 부드럽게 변경되도록 합니다 */
+  @layer base {
+    * {
+      @apply border-border;
+    }
+    body {
+      @apply bg-background text-foreground;
+      transition:
+        background-color 0.5s ease,
+        color 0.5s ease;
+    }
+  }
+  
+  /* 다음은 인풋 박스에 자동완성 배경색이 안나오도록 합니다 */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus {
+    background-color: inherit;
+    border-color: inherit;
+  }
