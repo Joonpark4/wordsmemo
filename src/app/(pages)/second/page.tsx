@@ -1,7 +1,7 @@
 export default function SecondPage() {
   return (
     <>
-      SecondPage
+      Games Page
     </>
   );
 }

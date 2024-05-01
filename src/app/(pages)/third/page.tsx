@@ -1,7 +1,7 @@
 export default function ThirdPage() {
   return (
     <>
-      ThirdPage
+      Online Page
     </>
   );
 }

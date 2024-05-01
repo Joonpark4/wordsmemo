@@ -18,8 +18,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn("centered w-full flex-col", inter.className)}>
-        <div className="centered h-dvh max-h-dvh w-full max-w-[425px] flex-col rounded-lg border-2">
+      <body className={cn("centered w-full h-dvh flex-col overflow-visible", inter.className)}>
+        <div className="centered h-dvh max-h-[1000px] w-full max-w-[425px] flex-col rounded-lg border-2">
           {children}
         </div>
       </body>

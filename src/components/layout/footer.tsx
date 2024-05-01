@@ -5,7 +5,7 @@ import { useRouter, usePathname } from "next/navigation";
 export const Footer = ({
   pages,
 }: {
-  pages: { name: string; path: string }[];
+  pages: { name: string; path: string}[];
 }) => {
   const router = useRouter();
   const pathName = usePathname();

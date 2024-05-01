@@ -1,9 +1,9 @@
 import { Footer } from "@/components/layout/footer";
 
 const pages = [
-  { name: "First Page", path: "/first" },
-  { name: "Second Page", path: "/second" },
-  { name: "Third Page", path: "/third" },
+  { name: "Words", path: "/first" },
+  { name: "Games", path: "/second" },
+  { name: "Online", path: "/third" },
 ];
 
 export default function PagesLayout({
