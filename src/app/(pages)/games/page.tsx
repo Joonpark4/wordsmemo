@@ -1,4 +1,4 @@
-export default function SecondPage() {
+export default function GamesPage() {
   return (
     <>
       Games Page
