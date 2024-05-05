@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { SearchBar } from "./_assets/search-bar";
 import { WordList } from "./_assets/word-list";
+import { WordHeaderOptionBar } from "./_assets/word-header-option.bar";
 
 export const animals = [
   { word: "Dog", meaning: "개" },
@@ -14,19 +15,26 @@ export const animals = [
   { word: "Monkey", meaning: "원숭이" },
   { word: "Horse", meaning: "말" },
   { word: "Fox", meaning: "여우" },
+  { word: "Monkey", meaning: "원숭이" },
+  { word: "Horse", meaning: "말" },
+  { word: "Fox", meaning: "여우" },
 ];
 
 export default function WordsPage() {
   const [selectedWordIndex, setSelectedWordIndex] = useState(-1);
 
   const handleWordClick = (index: number) => {
-    setSelectedWordIndex(index);
-    console.log(index);
+    if (selectedWordIndex === index) {
+      setSelectedWordIndex(-1);
+    } else {
+      setSelectedWordIndex(index);
+    }
   };
 
   return (
     <div className="space-y-3">
       <SearchBar />
+      <WordHeaderOptionBar />
       <div className="flex flex-col gap-2">
         {animals.map((animal, index) => (
           <WordList

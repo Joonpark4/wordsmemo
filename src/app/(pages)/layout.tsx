@@ -20,7 +20,7 @@ export default function PagesLayout({
         button1="New"
         button2="Edit"
       />
-      <main className="flex h-full w-full flex-1 flex-col px-3 py-5">
+      <main className="flex h-full overflow-y-auto w-full flex-1 flex-col px-3 py-5">
         {children}
       </main>
       <Footer pages={pages} />

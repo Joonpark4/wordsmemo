@@ -5,7 +5,7 @@ import { useRouter, usePathname } from "next/navigation";
 export const Footer = ({
   pages,
 }: {
-  pages: { name: string; path: string}[];
+  pages: { name: string; path: string }[];
 }) => {
   const router = useRouter();
   const pathName = usePathname();
@@ -15,7 +15,10 @@ export const Footer = ({
         {pages.map((page) => (
           <button
             key={page.path}
-            className={cn("flex h-full w-full flex-col items-center justify-center py-5", pathName === page.path ? "bg-accent" : "bg-card")}
+            className={cn(
+              "flex h-full w-full flex-col items-center justify-center py-5",
+              pathName === page.path ? "bg-accent" : "bg-card",
+            )}
             onClick={() => router.push(page.path)}
           >
             <span>{page.name}</span>

@@ -26,8 +26,8 @@ export const HeaderOptionBar = (props: {
           ))}
         </SelectContent>
       </Select>
-      <Button variant="secondary">{props.button1}</Button>
-      <Button variant="secondary">{props.button2}</Button>
+      <Button variant="outline">{props.button1}</Button>
+      <Button variant="outline">{props.button2}</Button>
     </div>
   );
 };
