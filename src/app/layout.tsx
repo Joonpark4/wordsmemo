@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import { Footer } from "@/components/layout/footer";
+import SessionWrapper from "@/components/auth/session-wrapper";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,12 +17,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={cn("centered w-full h-dvh flex-col overflow-visible", inter.className)}>
-        <div className="centered h-dvh max-h-[1000px] w-full max-w-[425px] flex-col rounded-lg border-2">
-          {children}
-        </div>
-      </body>
-    </html>
+    <SessionWrapper>
+      <html lang="en">
+        <body
+          className={cn(
+            "centered h-dvh w-full flex-col overflow-visible",
+            inter.className,
+          )}
+        >
+          <div className="centered h-dvh max-h-[1000px] w-full max-w-[425px] flex-col rounded-lg border-2">
+            {children}
+          </div>
+        </body>
+      </html>
+    </SessionWrapper>
   );
 }
