@@ -1,5 +1,11 @@
 import * as z from "zod";
 
+export const EmailSchema = z.object({
+  email: z.string().email({
+    message: "email is required",
+  }),
+});
+
 export const LoginSchema = z.object({
   email: z.string().email({
     message: "email is required",

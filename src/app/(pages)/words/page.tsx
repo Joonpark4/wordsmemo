@@ -4,7 +4,7 @@ import { SearchBar } from "./_assets/search-bar";
 import { WordList } from "./_assets/word-list";
 import { WordHeaderOptionBar } from "./_assets/word-header-option.bar";
 
-export const animals = [
+export const animals: { word: string; meaning: string }[] = [
   { word: "Dog", meaning: "개" },
   { word: "Cat", meaning: "고양이" },
   { word: "Lion", meaning: "사자" },

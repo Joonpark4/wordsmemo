@@ -11,31 +11,30 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { LoginSchema } from "@/schemas";
+import { EmailSchema } from "@/schemas";
 import { Button } from "@/components/ui/button";
 import { FormError } from "@/app/(auth)/form-error";
 import { FormSuccess } from "@/app/(auth)/form-success";
-import { LoginAction } from "@/app/actions/login";
+import { EmailAction } from "./actions/email";
 import { useState, useTransition } from "react";
 
-export const LoginForm = () => {
+export const AuthForm = () => {
   const [error, setError] = useState<string | undefined>("");
   const [success, setSuccess] = useState<string | undefined>("");
   const [isPending, startTransition] = useTransition();
 
-  const form = useForm<z.infer<typeof LoginSchema>>({
-    resolver: zodResolver(LoginSchema),
+  const form = useForm<z.infer<typeof EmailSchema>>({
+    resolver: zodResolver(EmailSchema),
     defaultValues: {
       email: "",
-      password: "",
     },
   });
 
-  const onSubmit = (values: z.infer<typeof LoginSchema>) => {
+  const onSubmit = (values: z.infer<typeof EmailSchema>) => {
     setError("");
     setSuccess("");
     startTransition(() => {
-      LoginAction(values).then((data) => {
+      EmailAction(values).then((data) => {
         setError(data.error);
         setSuccess(data.success);
       });
@@ -57,25 +56,6 @@ export const LoginForm = () => {
                     {...field}
                     placeholder="john.doe@example.com"
                     type="email"
-                    className="px-3 py-5 text-2xl"
-                    disabled={isPending}
-                  />
-                </FormControl>
-                <FormMessage {...field} />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="password"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel className="text-xl">Password</FormLabel>
-                <FormControl>
-                  <Input
-                    {...field}
-                    placeholder="●●●●●●●"
-                    type="password"
                     className="px-3 py-5 text-2xl"
                     disabled={isPending}
                   />
