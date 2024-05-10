@@ -11,40 +11,34 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { LoginSchema } from "@/schemas";
+import { RegisterSchema } from "@/schemas";
 import { Button } from "@/components/ui/button";
 import { FormError } from "@/app/(auth)/form-error";
 import { FormSuccess } from "@/app/(auth)/form-success";
-import { LoginAction } from "./actions/login";
+import { RegisterAction } from "./actions/register";
 import { useState } from "react";
-import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
-import { useSession } from "next-auth/react";
 
-export const LoginForm = () => {
+export const RegisterForm = () => {
   const [error, setError] = useState<string | undefined>("");
   const [success, setSuccess] = useState<string | undefined>("");
   const [isPending, setIsPending] = useState(false);
-  const router = useRouter();
 
-  const form = useForm<z.infer<typeof LoginSchema>>({
-    resolver: zodResolver(LoginSchema),
+  const form = useForm<z.infer<typeof RegisterSchema>>({
+    resolver: zodResolver(RegisterSchema),
     defaultValues: {
       email: "",
       password: "",
+      password2: "",
+      nickName: "",
     },
   });
 
-  const onSubmit = async (values: z.infer<typeof LoginSchema>) => {
+  const onSubmit = async (values: z.infer<typeof RegisterSchema>) => {
     setIsPending(true);
-    const result = await LoginAction(values);
+    const result = await RegisterAction(values);
     console.log(result);
     if (result) {
-      signIn("email");
-      setIsPending(false);
     } else {
-      setIsPending(false);
-      setError("Invalid email or password");
     }
   };
 
@@ -82,6 +76,42 @@ export const LoginForm = () => {
                     {...field}
                     placeholder="●●●●●●●●"
                     type="password"
+                    className="px-3 py-5 text-2xl"
+                  />
+                </FormControl>
+                <FormMessage {...field} />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="password2"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-xl">Confirm Password</FormLabel>
+                <FormControl>
+                  <Input
+                    {...field}
+                    placeholder="●●●●●●●●"
+                    type="password"
+                    className="px-3 py-5 text-2xl"
+                  />
+                </FormControl>
+                <FormMessage {...field} />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="nickName"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-xl">Nick Name</FormLabel>
+                <FormControl>
+                  <Input
+                    {...field}
+                    placeholder="●●●●●●●●"
+                    type="text"
                     className="px-3 py-5 text-2xl"
                   />
                 </FormControl>

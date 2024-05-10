@@ -1,6 +1,9 @@
+'use client';
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { HeaderOptionBar } from "@/components/layout/header-optionbar";
+import { useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
 
 const pages = [
   { name: "Words", path: "/words" },
@@ -12,6 +15,12 @@ export default function PagesLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const { data: session } = useSession();
+  console.log(session);
+
+  // if (!session){
+  //   redirect("/");
+  // }
   return (
     <>
       <Header title={"Words Memo"} />
