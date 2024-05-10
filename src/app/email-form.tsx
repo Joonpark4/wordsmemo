@@ -14,14 +14,12 @@ import {
 import { EmailSchema } from "@/schemas";
 import { Button } from "@/components/ui/button";
 import { FormError } from "@/app/(auth)/form-error";
-import { FormSuccess } from "@/app/(auth)/form-success";
-import { EmailAction } from "@/app/actions/email";
-import { useState, useTransition } from "react";
+import { EmailAction } from "./actions/email";
+import { useState } from "react";
 
-export const LoginForm2 = () => {
+export const EmailForm = () => {
   const [error, setError] = useState<string | undefined>("");
-  const [success, setSuccess] = useState<string | undefined>("");
-  const [isPending, startTransition] = useTransition();
+  const [isPending, setIsPending] = useState(false);
 
   const form = useForm<z.infer<typeof EmailSchema>>({
     resolver: zodResolver(EmailSchema),
@@ -30,15 +28,13 @@ export const LoginForm2 = () => {
     },
   });
 
-  const onSubmit = (values: z.infer<typeof EmailSchema>) => {
-    setError("");
-    setSuccess("");
-    startTransition(() => {
-      EmailAction(values).then((data) => {
-        setError(data.error);
-        setSuccess(data.success);
-      });
-    });
+  const onSubmit = async (values: z.infer<typeof EmailSchema>) => {
+    setIsPending(true);
+    const result = await EmailAction(values);
+    console.log(result);
+    if (result) {
+    } else {
+    }
   };
 
   return (
@@ -66,7 +62,6 @@ export const LoginForm2 = () => {
           />
         </div>
         <FormError message={error} />
-        <FormSuccess message={success} />
         <Button type="submit" className="w-full">
           Login
         </Button>

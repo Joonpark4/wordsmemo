@@ -16,12 +16,12 @@ import { Button } from "@/components/ui/button";
 import { FormError } from "@/app/(auth)/form-error";
 import { FormSuccess } from "@/app/(auth)/form-success";
 import { EmailAction } from "./actions/email";
-import { useState, useTransition } from "react";
+import { useState } from "react";
 
-export const AuthForm = () => {
+export const LoginForm = () => {
   const [error, setError] = useState<string | undefined>("");
   const [success, setSuccess] = useState<string | undefined>("");
-  const [isPending, startTransition] = useTransition();
+  const [isPending, setIsPending] = useState(false);
 
   const form = useForm<z.infer<typeof EmailSchema>>({
     resolver: zodResolver(EmailSchema),
@@ -30,15 +30,13 @@ export const AuthForm = () => {
     },
   });
 
-  const onSubmit = (values: z.infer<typeof EmailSchema>) => {
-    setError("");
-    setSuccess("");
-    startTransition(() => {
-      EmailAction(values).then((data) => {
-        setError(data.error);
-        setSuccess(data.success);
-      });
-    });
+  const onSubmit = async (values: z.infer<typeof EmailSchema>) => {
+    setIsPending(true);
+    const result = await EmailAction(values);
+    console.log(result);
+    if (result) {
+    } else {
+    }
   };
 
   return (
@@ -58,6 +56,16 @@ export const AuthForm = () => {
                     type="email"
                     className="px-3 py-5 text-2xl"
                     disabled={isPending}
+                  />
+                </FormControl>
+                <FormMessage {...field} />
+                <FormLabel className="text-xl">Password</FormLabel>
+                <FormControl>
+                  <Input
+                    {...field}
+                    placeholder="●●●●●●●●"
+                    type="password"
+                    className="px-3 py-5 text-2xl"
                   />
                 </FormControl>
                 <FormMessage {...field} />
