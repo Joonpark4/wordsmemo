@@ -15,7 +15,7 @@ import { LoginSchema } from "@/schemas";
 import { Button } from "@/components/ui/button";
 import { FormError } from "./form-error";
 import { FormSuccess } from "./form-success";
-import { LoginAction } from "./actions/login";
+import { LoginAction } from "../actions/login";
 import { useState } from "react";
 
 export const LoginForm = () => {
