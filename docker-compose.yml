@@ -1,8 +1,10 @@
-version: '3.8'
+version: "3.8"
 services:
   portfolio:
     image: sargadi/wordsmemo
     container_name: wordsmemo
+    env_file:
+      - .env
     ports:
       - "3002:3000"
     restart: unless-stopped
