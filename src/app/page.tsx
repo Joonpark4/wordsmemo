@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { Social } from "./social";
+import { Social } from "@/app/_assets/social";
 export default function Home() {
   return (
     <div className="centered w-full flex-col gap-6 p-3">

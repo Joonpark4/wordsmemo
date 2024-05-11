@@ -1,15 +1,17 @@
 "use client";
 import { useState } from "react";
-import { SearchBar } from "./search-bar";
-import { WordList } from "./word-list";
-import { WordHeaderOptionBar } from "./word-header-option.bar";
+import { SearchBar } from "@/app/(pages)/words/_assets/search-bar";
+import { WordList } from "@/app/(pages)/words/_assets/word-list";
+import { WordHeaderOptionBar } from "@/app/(pages)/words/_assets/word-header-option.bar";
 
 // WordsPage 컴포넌트 정의
 export default function WordsPage() {
-  const [selectedWordIndex, setSelectedWordIndex] = useState<number | null>(null);
+  const [selectedWordIndex, setSelectedWordIndex] = useState<number | null>(
+    null,
+  );
 
   const handleWordClick = (index: number) => {
-    setSelectedWordIndex(prevIndex => prevIndex === index ? null : index);
+    setSelectedWordIndex((prevIndex) => (prevIndex === index ? null : index));
   };
 
   const animals: { word: string; meaning: string }[] = [

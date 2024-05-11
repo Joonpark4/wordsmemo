@@ -4,17 +4,18 @@ import plugin from "tailwindcss/plugin";
 const config = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-	],
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
       center: true,
       padding: "2rem",
       screens: {
+        xs: "375px",
         "2xl": "1400px",
       },
     },
@@ -93,16 +94,18 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"),
-  plugin(function ({ addComponents }) {
-    addComponents({
-      ".centered": {
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      },
-    });
-  }),],
-} satisfies Config
+  plugins: [
+    require("tailwindcss-animate"),
+    plugin(function ({ addComponents }) {
+      addComponents({
+        ".centered": {
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        },
+      });
+    }),
+  ],
+} satisfies Config;
 
-export default config
+export default config;
