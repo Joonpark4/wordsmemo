@@ -37,7 +37,7 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           port: ${{ secrets.SERVER_SSH_PORT }}
           script: |
-            cd /app/docker/portfolio
+            cd /app/docker/wordsmemo
             sudo docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
             sudo docker-compose pull
             sudo docker-compose down
