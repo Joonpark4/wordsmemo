@@ -13,8 +13,8 @@ import {
 } from "@/components/ui/form";
 import { LoginSchema } from "@/schemas";
 import { Button } from "@/components/ui/button";
-import { FormError } from "@/app/(auth)/form-error";
-import { FormSuccess } from "@/app/(auth)/form-success";
+import { FormError } from "./form-error";
+import { FormSuccess } from "./form-success";
 import { LoginAction } from "./actions/login";
 import { useState } from "react";
 import { signIn } from "next-auth/react";

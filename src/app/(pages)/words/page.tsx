@@ -1,10 +1,10 @@
 "use client";
 import { useState } from "react";
-import { SearchBar } from "./_assets/search-bar";
-import { WordList } from "./_assets/word-list";
-import { WordHeaderOptionBar } from "./_assets/word-header-option.bar";
+import { SearchBar } from "./search-bar";
+import { WordList } from "./word-list";
+import { WordHeaderOptionBar } from "./word-header-option.bar";
 
-export const animals: { word: string; meaning: string }[] = [
+export const animals: any[] = [
   { word: "Dog", meaning: "개" },
   { word: "Cat", meaning: "고양이" },
   { word: "Lion", meaning: "사자" },

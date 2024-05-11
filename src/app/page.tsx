@@ -1,10 +1,6 @@
 import { cn } from "@/lib/utils";
-import { Social } from "@/app/(auth)/social";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import { LoginForm } from "@/app/login-form";
+import { Social } from "./social";
 export default function Home() {
-
   return (
     <div className="centered w-full flex-col gap-6 p-3">
       <div className="centered w-full flex-col gap-y-4">
