@@ -46,6 +46,11 @@ jobs:
           port: ${{ secrets.SERVER_SSH_PORT }}
           script: |
             cd /app/docker/wordsmemo
+            echo "${{ secrets.GOOGLE_CLIENT_ID }}" > .env
+            echo "${{ secrets.GOOGLE_CLIENT_SECRET }}" >> .env
+            echo "${{ secrets.NEXTAUTH_SECRET }}" >> .env
+            echo "${{ secrets.NEXTAUTH_URL }}" >> .env
+            # 필요한 다른 환경 변수를 여기에 추가
             sudo docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
             sudo docker-compose pull
             sudo docker-compose down
