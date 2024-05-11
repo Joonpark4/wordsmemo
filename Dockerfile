@@ -4,8 +4,6 @@ FROM node:20 as builder
 WORKDIR /usr/src/app
 
 COPY package*.json ./
-# env 파일 복사
-COPY .env ./.env
 
 RUN npm install --verbose
 
