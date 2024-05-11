@@ -4,32 +4,26 @@ import { SearchBar } from "./search-bar";
 import { WordList } from "./word-list";
 import { WordHeaderOptionBar } from "./word-header-option.bar";
 
-export const animals = [
-  { word: "Dog", meaning: "개" },
-  { word: "Cat", meaning: "고양이" },
-  { word: "Lion", meaning: "사자" },
-  { word: "Tiger", meaning: "호랑이" },
-  { word: "Elephant", meaning: "코끼리" },
-  { word: "Bear", meaning: "곰" },
-  { word: "Deer", meaning: "사슴" },
-  { word: "Monkey", meaning: "원숭이" },
-  { word: "Horse", meaning: "말" },
-  { word: "Fox", meaning: "여우" },
-  { word: "Monkey", meaning: "원숭이" },
-  { word: "Horse", meaning: "말" },
-  { word: "Fox", meaning: "여우" },
-];
-
+// WordsPage 컴포넌트 정의
 export default function WordsPage() {
-  const [selectedWordIndex, setSelectedWordIndex] = useState(-1);
+  const [selectedWordIndex, setSelectedWordIndex] = useState<number | null>(null);
 
   const handleWordClick = (index: number) => {
-    if (selectedWordIndex === index) {
-      setSelectedWordIndex(-1);
-    } else {
-      setSelectedWordIndex(index);
-    }
+    setSelectedWordIndex(prevIndex => prevIndex === index ? null : index);
   };
+
+  const animals: { word: string; meaning: string }[] = [
+    { word: "Dog", meaning: "개" },
+    { word: "Cat", meaning: "고양이" },
+    { word: "Lion", meaning: "사자" },
+    { word: "Tiger", meaning: "호랑이" },
+    { word: "Elephant", meaning: "코끼리" },
+    { word: "Bear", meaning: "곰" },
+    { word: "Deer", meaning: "사슴" },
+    { word: "Monkey", meaning: "원숭이" },
+    { word: "Horse", meaning: "말" },
+    { word: "Fox", meaning: "여우" },
+  ];
 
   return (
     <div className="space-y-3">

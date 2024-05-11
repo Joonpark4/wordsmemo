@@ -17,7 +17,6 @@ import { FormError } from "./form-error";
 import { FormSuccess } from "./form-success";
 import { LoginAction } from "./actions/login";
 import { useState } from "react";
-import { signIn } from "next-auth/react";
 
 export const LoginForm = () => {
   const [error, setError] = useState<string | undefined>("");
@@ -36,7 +35,6 @@ export const LoginForm = () => {
     const result = await LoginAction(values);
     console.log(result);
     if (result) {
-      signIn("email");
       setIsPending(false);
     } else {
       setIsPending(false);
