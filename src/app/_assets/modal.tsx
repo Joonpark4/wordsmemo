@@ -19,7 +19,7 @@ export const Modal = () => {
         <CardHeader>
           <CardTitle>Create project</CardTitle>
           <CardDescription>
-            Deploy your new project in one-click.
+            Deploy your new project in one-click
           </CardDescription>
         </CardHeader>
         <CardContent>
