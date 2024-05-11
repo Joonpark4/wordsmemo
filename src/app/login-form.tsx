@@ -18,14 +18,10 @@ import { FormSuccess } from "@/app/(auth)/form-success";
 import { LoginAction } from "./actions/login";
 import { useState } from "react";
 import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
-import { useSession } from "next-auth/react";
 
 export const LoginForm = () => {
   const [error, setError] = useState<string | undefined>("");
-  const [success, setSuccess] = useState<string | undefined>("");
   const [isPending, setIsPending] = useState(false);
-  const router = useRouter();
 
   const form = useForm<z.infer<typeof LoginSchema>>({
     resolver: zodResolver(LoginSchema),
@@ -91,7 +87,6 @@ export const LoginForm = () => {
           />
         </div>
         <FormError message={error} />
-        <FormSuccess message={success} />
         <Button type="submit" className="w-full">
           Login
         </Button>
