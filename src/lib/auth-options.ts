@@ -10,5 +10,26 @@ export const authOptions: NextAuthOptions = {
   session: {
       strategy: "jwt",
   },
+  callbacks:{
+    async signIn({user,account,profile,email,credentials}){
+      const isAllowedToSignIn = true;
+      if(isAllowedToSignIn){
+        
+
+
+        return true;
+      } else{
+        return false;
+      }
+  }
+},
   secret: process.env.NEXTAUTH_SECRET,
 };
+
+export const isEmailExist = (email: string, data:any[]) => {
+  return data.some((item) => item.email === email);
+};
+
+export const CreateUser = (email:string) =>{
+  
+}
