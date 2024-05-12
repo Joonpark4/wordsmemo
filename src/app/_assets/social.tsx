@@ -10,7 +10,9 @@ export const Social = () => {
         size="lg"
         variant={"outline"}
         className="w-full"
-        onClick={() => {signIn("google")}}
+        onClick={() => {
+          signIn("google", { redirect: false, callbackUrl: "/"});
+        }}
       >
         <FcGoogle className="h-6 w-6" />
       </Button>
