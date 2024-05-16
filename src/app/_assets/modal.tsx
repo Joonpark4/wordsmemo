@@ -12,9 +12,9 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
-export const Modal = () => {
+export const Modal = ({active}:{active:boolean}) => {
   return (
-    <div className="xs:w-full h-full w-[90%] bg-muted bg-opacity-50">
+    <div className="centered absolute left-0 top-0 h-full w-full flex-col bg-opacity-20 bg-slate-400">
       <Card>
         <CardHeader>
           <CardTitle>Create project</CardTitle>
