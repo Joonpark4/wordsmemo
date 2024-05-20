@@ -9,7 +9,6 @@ export default function WordsPage() {
   const [selectedWordIndex, setSelectedWordIndex] = useState<number | null>(
     null,
   );
-
   const handleWordClick = (index: number) => {
     setSelectedWordIndex((prevIndex) => (prevIndex === index ? null : index));
   };

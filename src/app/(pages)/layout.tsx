@@ -1,9 +1,10 @@
-'use client';
+"use client";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { HeaderOptionBar } from "@/components/layout/header-optionbar";
 import { useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
+import { Modal } from "@/app/_assets/modal";
 
 const pages = [
   { name: "Words", path: "/words" },
@@ -29,7 +30,8 @@ export default function PagesLayout({
         button1="New"
         button2="Edit"
       />
-      <main className="flex h-full overflow-y-auto w-full flex-1 flex-col px-3 py-5">
+      <Modal />
+      <main className="flex h-full w-full flex-1 flex-col overflow-y-auto px-3 py-5">
         {children}
       </main>
       <Footer pages={pages} />

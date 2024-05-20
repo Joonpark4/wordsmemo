@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import SessionWrapper from "@/components/auth/session-wrapper";
-import { Modal } from "./_assets/modal";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,7 +25,7 @@ export default function RootLayout({
             inter.className,
           )}
         >
-          <div className="centered h-dvh max-h-[1000px] w-full max-w-[425px] flex-col rounded-lg border-2 relative">
+          <div className="centered relative h-dvh max-h-[1000px] w-full max-w-[425px] flex-col rounded-lg border-2">
             {children}
           </div>
         </body>

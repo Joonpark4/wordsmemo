@@ -1,5 +1,5 @@
-import * as React from "react";
-
+"use client";
+import React, { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -11,16 +11,19 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Store, useStore } from "@/store/Modal";
 
 export const Modal = () => {
+  const active = useStore((state: Store) => state.active);
+  const closeModal = useStore((state: Store) => state.closeModal);
+  if (!active) return null;
+
   return (
-    <div className="xs:w-full h-full w-[90%] bg-muted bg-opacity-50">
+    <div className="centered absolute left-0 top-0 h-full w-full flex-col bg-slate-400 bg-opacity-20">
       <Card>
         <CardHeader>
-          <CardTitle>Create project</CardTitle>
-          <CardDescription>
-            Deploy your new project in one-click
-          </CardDescription>
+          <CardTitle>Create New Word</CardTitle>
+          <CardDescription>Create a new word to memorize</CardDescription>
         </CardHeader>
         <CardContent>
           <form>
@@ -37,8 +40,10 @@ export const Modal = () => {
           </form>
         </CardContent>
         <CardFooter className="flex justify-between">
-          <Button variant="outline">Cancel</Button>
-          <Button>Deploy</Button>
+          <Button variant="outline" onClick={closeModal}>
+            Cancel
+          </Button>
+          <Button onClick={closeModal}>Submit</Button>
         </CardFooter>
       </Card>
     </div>
