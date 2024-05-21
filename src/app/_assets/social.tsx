@@ -11,7 +11,7 @@ export const Social = () => {
         variant={"outline"}
         className="w-full"
         onClick={() => {
-          signIn("google", { redirect: false, callbackUrl: "/"});
+          signIn("google", { redirect: true, callbackUrl: "/" });
         }}
       >
         <FcGoogle className="h-6 w-6" />
