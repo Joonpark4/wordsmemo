@@ -28,6 +28,7 @@ export const authOptions: NextAuthOptions = {
     },
   },
   secret: process.env.NEXTAUTH_SECRET,
+  debug: true, // 디버깅 추가
 };
 
 export const isEmailExist = async (email: any) => {

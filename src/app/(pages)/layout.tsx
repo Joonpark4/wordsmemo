@@ -19,9 +19,9 @@ export default function PagesLayout({
   const { data: session } = useSession();
   console.log(session);
 
-  // if (!session){
-  //   redirect("/");
-  // }
+  if (!session){
+    redirect("/");
+  }
   return (
     <>
       <Header title={"Words Memo"} />

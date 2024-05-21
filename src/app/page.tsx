@@ -1,6 +1,14 @@
+"use client";
 import { cn } from "@/lib/utils";
 import { Social } from "@/app/_assets/social";
+import { useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
 export default function Home() {
+  const { data: session } = useSession();
+  console.log(session)
+  if (session) {
+    redirect("/words");
+  }
   return (
     <div className="centered w-full flex-col gap-6 p-3">
       <div className="centered w-full flex-col gap-y-4">
