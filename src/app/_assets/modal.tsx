@@ -20,7 +20,7 @@ export const Modal = () => {
 
   return (
     <div className="centered absolute left-0 top-0 h-full w-full flex-col bg-slate-400 bg-opacity-20">
-      <Card>
+      <Card className="min-w-[90%] sm:min-w-[80%]">
         <CardHeader>
           <CardTitle>Create New Word</CardTitle>
           <CardDescription>Create a new word to memorize</CardDescription>

@@ -9,6 +9,7 @@ import { Modal } from "@/app/_assets/modal";
 const pages = [
   { name: "Words", path: "/words" },
   { name: "Games", path: "/games" },
+  { name: "Account", path: "/account" },
 ];
 
 export default function PagesLayout({

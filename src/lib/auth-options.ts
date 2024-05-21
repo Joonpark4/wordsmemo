@@ -50,7 +50,7 @@ export const isEmailExist = async (
 export const createUser = async (user: any) => {
   try {
     await axios.post("https://strapi.joondev.com/api/auth/local/register", {
-      username: user.id,
+      username: user.name,
       email: user.email,
       password: "social",
       nickname: user.name,

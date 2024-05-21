@@ -5,7 +5,13 @@ import { signOut } from "next-auth/react";
 export default function GamesPage() {
   return (
     <>
-      단어 맞추기 게임이 들어갈 예정
+      <Button
+        onClick={() => {
+          signOut({redirect:true, callbackUrl:"/"});
+        }}
+      >
+        로그 아웃
+      </Button>
     </>
   );
 }
