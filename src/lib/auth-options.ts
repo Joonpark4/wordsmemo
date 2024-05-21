@@ -15,12 +15,17 @@ export const authOptions: NextAuthOptions = {
     async signIn({ user, account, profile, email, credentials }) {
       const isAllowedToSignIn = true;
       if (isAllowedToSignIn) {
-        await axios.post("https://strapi.joondev.com/api/auth/local/register", {
-          username: user.id,
-          email: user.email,
-          password: "social",
-          nickname: user.name,
-        });
+        if (await isEmailExist(user.email)) {
+          await axios.post(
+            "https://strapi.joondev.com/api/auth/local/register",
+            {
+              username: user.id,
+              email: user.email,
+              password: "social",
+              nickname: user.name,
+            },
+          );
+        }
         return true;
       } else {
         return "/words";
