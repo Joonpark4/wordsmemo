@@ -13,8 +13,8 @@ export const authOptions: NextAuthOptions = {
   },
   callbacks: {
     async signIn({ user, account, profile, email, credentials }) {
-      const isAllowedToSignIn = await isEmailExist(user.email);
-      if (!isAllowedToSignIn) {
+      const isAllowedToSignIn = true;
+      if (isAllowedToSignIn) {
         await axios.post("https://strapi.joondev.com/api/auth/local/register", {
           username: user.id,
           email: user.email,
@@ -23,12 +23,10 @@ export const authOptions: NextAuthOptions = {
         });
         return true;
       } else {
-        return "/";
+        return "/words";
       }
     },
   },
-  secret: process.env.NEXTAUTH_SECRET,
-  debug: true, // 디버깅 추가
 };
 
 export const isEmailExist = async (email: any) => {
